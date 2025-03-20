@@ -136,34 +136,32 @@ const library = [
     ],
   },
 ];
-function returnNames(smth) {
-  return smth.map((item) => item.books.map((book) => book.name)).flat();
-}
+// function returnNames(smth) {
+//   return smth.map((item) => item.books.map((book) => book.name)).flat();
+// }
 //a. Выведите в console названия всех книг.
 // let res = returnNames(library);
 // console.log(res);
 // Выведите в console имена самой популярной книги каждого из авторов в читабельном формате
+// function returnNames(smth) {
+//   return smth.map((item) => ({
+//     author: item.author,
+//     book: item.books
+//       .filter(
+//         (slot) =>
+//           slot.rating === Math.max(...item.books.map((lot) => lot.rating))
+//       )
+//       .map((lot) => lot.name).toString()
+//   }))
+// }
+// let res = returnNames(library);
+// console.log(res);
+//  c. Отсортируйте библиотеку по году выпуска книг
 function returnNames(smth) {
   return smth.map((item) => ({
-    author: item.author,
-    book: item.books
-      .filter(
-        (slot) =>
-          slot.rating === Math.max(...item.books.map((lot) => lot.rating))
-      )
-      .map((lot) => lot.name),
+    book: item.books.map((lot) => lot.year).sort((a, b) => a - b),
   }));
 }
+
 let res = returnNames(library);
 console.log(res);
-function returnNames(smth) {
-  return smth.map((item) => ({
-    book: item.books.map((lot) =>({
-        name:lot.name,
-        date:lot.date
-    })) 
-  }
-}
-let res = returnNames(library);
-console.log(res);
-let arr=[]
